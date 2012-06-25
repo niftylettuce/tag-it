@@ -36,6 +36,7 @@
             caseSensitive     : true,
             placeholderText   : null,
             maxTags: 10,
+            minTagLength: 3,
 
             // When enabled, quotes are not neccesary
             // for inputting multi-word tags.
@@ -312,7 +313,7 @@
             // Automatically trims the value of leading and trailing whitespace.
             value = $.trim(value);
 
-            if (!this._isNew(value) || value === '') {
+            if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength ) {
                 return false;
             }
 
