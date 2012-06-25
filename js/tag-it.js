@@ -313,7 +313,7 @@
             // Automatically trims the value of leading and trailing whitespace.
             value = $.trim(value);
 
-            if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength ) {
+            if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength || !value.match(/^[a-zA-Z]+$/)) {
                 return false;
             }
 
