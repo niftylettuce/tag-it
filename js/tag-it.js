@@ -37,6 +37,7 @@
             placeholderText   : null,
             maxTags: 10,
             minTagLength: 3,
+            maxTagLength: 15,
 
             // When enabled, quotes are not neccesary
             // for inputting multi-word tags.
@@ -313,7 +314,7 @@
             // Automatically trims the value of leading and trailing whitespace.
             value = $.trim(value);
 
-            if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength || !value.match(/^[a-zA-Z_-]+$/)) {
+            if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength || value.length > this.options.maxTagLength || !value.match(/^[a-zA-Z_-]+$/)) {
                 return false;
             }
 
