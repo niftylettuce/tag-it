@@ -101,6 +101,10 @@
             }
 
             this._tagInput = $('<input type="text" />').addClass('ui-widget-content');
+            // Add maxlength
+            if (this.options.maxTagLength > 0) {
+              this._tagInput.attr('maxlength', this.options.maxTagLength);
+            }
             if (this.options.tabIndex) {
                 this._tagInput.attr('tabindex', this.options.tabIndex);
             }
@@ -313,7 +317,6 @@
             var that = this;
             // Automatically trims the value of leading and trailing whitespace.
             value = $.trim(value);
-
             if (!this._isNew(value) || value === '' || value.length < this.options.minTagLength || value.length > this.options.maxTagLength || !value.match(/^[a-zA-Z_-]+$/)) {
                 return false;
             }
